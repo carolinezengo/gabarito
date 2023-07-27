@@ -28,8 +28,8 @@ pyautogui.click(x=640, y=633)
 time.sleep(3)
 
 #Passo3: Importar a base Produto
-import pandas
-tabela = pandas.read_csv("produtos.csv")
+import pandas as pd
+tabela = pd.read_csv("produtos.csv")
 print(tabela)
 
 #Passo 4: Cadastrar um produto
@@ -52,8 +52,11 @@ pyautogui.write(str(tabela.loc[linha,"preco_unitario"]))
 pyautogui.press("tab")
 pyautogui.write(str(tabela.loc[linha,"custo"]))
 pyautogui.press("tab")
-pyautogui.write(str(tabela.loc[linha,"obs"]))
+obs = tabela.loc[linha,"obs"]
+if not pd.isna(obs):
+  pyautogui.write(str(tabela.loc[linha,"obs"]))
 pyautogui.press("tab")
+pyautogui.press("enter")
 #Depois preencher o campo
 
 
