@@ -16,7 +16,7 @@ pyautogui.press("enter")
 #entrar no link
 pyautogui.write("https://dlp.hashtagtreinamentos.com/python/intensivao/login")
 pyautogui.press("enter")
-time.sleep(4)
+time.sleep(3)
 
 
 #Passo2:Fazser Login
@@ -33,6 +33,33 @@ tabela = pandas.read_csv("produtos.csv")
 print(tabela)
 
 #Passo 4: Cadastrar um produto
+linha = 0
+#Clicar campo codigo
+pyautogui.click(x=515, y=360)
+#Pegar da tabela o valor do campor que quer preencher
+codigo = tabela.loc[linha,"codigo"]
+#Depois preencher o campo
+pyautogui.write(str(codigo))
+#proximo campo
+pyautogui.press("tab")
+pyautogui.write(str(tabela.loc[linha,"marca"]))
+pyautogui.press("tab")
+pyautogui.write(str(tabela.loc[linha,"tipo"]))
+pyautogui.press("tab")
+pyautogui.write(str(tabela.loc[linha,"categoria"]))
+pyautogui.press("tab")
+pyautogui.write(str(tabela.loc[linha,"preco_unitario"]))
+pyautogui.press("tab")
+pyautogui.write(str(tabela.loc[linha,"custo"]))
+pyautogui.press("tab")
+pyautogui.write(str(tabela.loc[linha,"obs"]))
+pyautogui.press("tab")
+#Depois preencher o campo
+
+
+
+
 #Passo5: Repetir o processo de cadastro ate o fim 
+
 
 
